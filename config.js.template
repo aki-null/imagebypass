@@ -1,0 +1,18 @@
+// API keys for image services are defined here
+exports.apiKeys = {
+	mobypicture: '',
+	flickr: ''
+}
+
+exports.serverPort = 8000;
+// Enable logging to file
+exports.enableLogging = true;
+// Number of seconds to keep blacklist entry
+exports.blacklistLength = 1 * 60 * 60;
+
+// Database configuration
+exports.dbHost = 'localhost';
+exports.dbName = 'imagebypass';
+exports.dbUser = 'root';
+exports.dbPass = 'root';
+exports.dbPort = 3306;
