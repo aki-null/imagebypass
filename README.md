@@ -10,7 +10,7 @@ into
 
 `http://images.instagram.com/media/2011/05/11/3597ce7533a640ad954caaf6afe0e60a_7.jpg`
 
-All service details are defines in `imageServices.js`.
+All service details are defined in `imageServices.js`.
 
 ## Available APIs
 
@@ -69,8 +69,8 @@ The current version of Image Bypass requires the following node.js modules.
 
 		npm install request querystring jsdom mysql hashlib log4js
 2. Rename `config.js.template` to `config.js`
-3. Add MySQL database connection details
-4. Obtain and add API keys for some image hosting services
+3. Add MySQL database connection details in `config.js`
+4. Obtain and add API keys to `config.js` for some image hosting services
 5. Run it!
 
 		node server.js
