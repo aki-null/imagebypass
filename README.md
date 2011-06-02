@@ -21,6 +21,7 @@ This API does the actual translation. The only required parameter is `url`.
 Example request: `http://test.com/bypass?url=http%3A%2F%2Finstagr.am%2Fp%2FEInFJ%2F`
 
 Example output:
+
 	{
 	   "success":true,
 	   "message":"OK",
@@ -35,6 +36,7 @@ This API returns the list of all supported image hosting services. No parameters
 Example request: `http://test.com/supportedServices`
 
 Example output:
+
 	{
 	   "success":true,
 	   "message":"OK",
