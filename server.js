@@ -24,7 +24,7 @@ var imgUtils = require('./imageUtils');
 var config = require('./config');
 var http = require('http');
 var url = require('url');
-var log4js = require('log4js')();
+var log4js = require('log4js');
 
 if (config.enableLogging) {
 	log4js.addAppender(log4js.fileAppender('./access.log'), 'ACCESS');

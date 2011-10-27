@@ -147,7 +147,7 @@ var config = require('./config.js');
 	name: 'Instagram',
 	regex: '(https?://instagr.am/p/[^/]+/?)',
 	method: exports.fetchMethod.responseCaptureJSON,
-	ruleString: 'http://instagr.am/api/v1/oembed/?url={0}',
+	ruleString: 'http://api.instagram.com/oembed?url={0}',
 	getResult: function(data) {
 		return data.url;
 	}
@@ -176,11 +176,9 @@ var config = require('./config.js');
 },
 {
 	name: 'ついっぷるフォト',
-	regex: 'https?://p.twipple.jp/[a-zA-Z0-9]+',
-	method: exports.fetchMethod.responseDOMQuery,
-	getResult: function(window) {
-		return window.$('#post_image').attr('src');
-	}
+	regex: 'https?://p.twipple.jp/([0-9a-zA-Z]{5})',
+	method: exports.fetchMethod.singleReplace,
+    ruleString: 'http://p.twipple.jp/show/large/{0}'
 },
 {
 	name: 'ニコニコ動画',

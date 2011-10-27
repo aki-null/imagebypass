@@ -24,8 +24,8 @@ var imgSrv = require('./imageServices');
 var config = require('./config.js');
 var request = require('request');
 var hashlib = require('hashlib');
-var log4js = require('log4js')();
-var Client = require('mysql').Client;
+var log4js = require('log4js');
+var mysql = require('mysql');
 
 var urlRegex = /^https?:\/\//i;
 var logger = log4js.getLogger('error');
@@ -34,16 +34,16 @@ if (config.enableLogging) {
 }
 
 // Connect to the database
-var con = new Client();
-con.host = config.dbHost;
-con.port = config.dbPort;
-con.user = config.dbUser;
-con.password = config.dbPass;
-con.connect();
+var con = mysql.createClient({
+    user: config.dbUser,
+    password: config.dbPass,
+    host: config.dbHost,
+    port: config.dbPort,
+});
 
 // Initialize database
 con.query('CREATE DATABASE ' + config.dbName, function (error) {
-	if (error && error.number != Client.ERROR_DB_CREATE_EXISTS) {
+	if (error && error.number != mysql.ERROR_DB_CREATE_EXISTS) {
 		logger.error('Failed to create the database - ' + error);
 	} else {
 		con.query('USE ' + config.dbName, function (error) {
