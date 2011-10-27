@@ -141,7 +141,7 @@ var config = require('./config.js');
 	name: 'Instagram',
 	regex: '(https?://instagr.am/p/[^/]+/?)',
 	method: exports.fetchMethod.responseCaptureJSON,
-	ruleString: 'http://instagr.am/api/v1/oembed/?url={0}',
+	ruleString: 'http://api.instagram.com/oembed?url={0}',
 	getResult: function(data) {
 		return data.url;
 	}
