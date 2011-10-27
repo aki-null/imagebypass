@@ -1,16 +1,16 @@
 /*!
  * Copyright (C) 2011 by Akihiro Noguchi
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -38,6 +38,7 @@ function processRequest(req, res) {
 	// Rarse request URL
 	var urlComps = url.parse(req.url, true);
 	var pathName = urlComps.pathname;
+	var readable = urlComps.query.readable !== undefined ? "    " : false;
 
 	// Bypass API
 	if (pathName == '/bypass') {
@@ -53,7 +54,7 @@ function processRequest(req, res) {
 					message: 'OK',
 					imageServiceName: serviceName,
 					imageUrl: finalUrl
-				}));
+				}, null, readable));
 			},
 			function(error) {
 				if (!error) {
@@ -65,7 +66,7 @@ function processRequest(req, res) {
 					message: error,
 					imageServiceName: null,
 					imageUrl: null
-				}));
+				}, null, readable));
 			});
 		} else {
 			// Error (invalid parameter)
@@ -74,14 +75,14 @@ function processRequest(req, res) {
 				message: 'Please specify the image URL',
 				imageServiceName: null,
 				imageUrl: null
-			}));
+			}, null, readable));
 		}
 	} else if (pathName == '/supportedServices') {
 		res.end(JSON.stringify({
 			success: true,
 			message: 'OK',
 			services: imgUtils.getSupportedServices()
-		}));
+		}, null, readable));
 	} else {
 		// Error (no such API)
 		res.end(JSON.stringify({
@@ -89,7 +90,7 @@ function processRequest(req, res) {
 			message: 'Invalid API name',
 			imageServiceName: null,
 			imageUrl: null
-		}));
+		}, null, readable));
 	}
 }
 
