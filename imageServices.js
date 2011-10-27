@@ -50,12 +50,6 @@ var config = require('./config.js');
 // Image service definitions
  exports.imageServices = [
 {
-	name: 'ついっぷるフォト',
-    regex: 'http://p.twipple.jp/([0-9]{5})',
-	method: exports.fetchMethod.singleReplace,
-	ruleString: 'http://p.twipple.jp/show/thumb/{1}'
-},
-{
 	name: '携帯百景',
 	regex: 'https?://(?:www.)?movapic.com/pic/([0-9]+[0-9a-f]+)',
 	method: exports.fetchMethod.singleReplace,
