@@ -24,8 +24,8 @@ var imgSrv = require('./imageServices');
 var config = require('./config.js');
 var request = require('request');
 var hashlib = require('hashlib');
-var log4js = require('log4js')();
 var Client = require('mysql').Client;
+var log4js = require('log4js');
 
 var urlRegex = /^https?:\/\//i;
 var logger = log4js.getLogger('error');
