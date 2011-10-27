@@ -170,7 +170,7 @@ var config = require('./config.js');
 },
 {
 	name: 'ついっぷるフォト',
-	regex: 'https?://p.twipple.jp/[a-zA-Z0-9]+',
+	regex: 'https?://p.twipple.jp/([0-9a-zA-Z]{5})',
 	method: exports.fetchMethod.singleReplace,
     ruleString: 'http://p.twipple.jp/show/large/{0}'
 },
