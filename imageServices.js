@@ -171,10 +171,8 @@ var config = require('./config.js');
 {
 	name: 'ついっぷるフォト',
 	regex: 'https?://p.twipple.jp/[a-zA-Z0-9]+',
-	method: exports.fetchMethod.responseDOMQuery,
-	getResult: function(window) {
-		return window.$('#post_image').attr('src');
-	}
+	method: exports.fetchMethod.singleReplace,
+    ruleString: 'http://p.twipple.jp/show/large/{0}'
 },
 {
 	name: 'ニコニコ動画',
