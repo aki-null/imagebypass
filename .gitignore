@@ -2,3 +2,5 @@
 Thumbs.db
 config.js
 *.log
+node_modules/
+
